@@ -1,4 +1,5 @@
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 const MainLayout = (props) => {
   const { children } = props
@@ -6,9 +7,12 @@ const MainLayout = (props) => {
     name: 'Sandy',
   }
   return (
-    <div className="min-h-screen w-screen">
+    <div className="min-h-screen w-screen flex flex-col">
       <NavBar user={user} />
-      <div style={{ paddingTop: 70 }}>{children}</div>
+      <div className="grow" style={{ paddingTop: 70 }}>
+        {children}
+      </div>
+      <Footer/>
     </div>
   )
 }
