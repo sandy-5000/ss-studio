@@ -1,8 +1,6 @@
-import '@/app/globals.css'
-
 const Page = () => {
   return (
-    <div className="h-screen v-screen a-center">
+    <div className="h-screen w-screen a-center">
       <p>Checkout!</p>
     </div>
   )
