@@ -19,14 +19,14 @@ const NavBar = (props) => {
   const pathname = usePathname()
 
   return (
-    <div className="z-[10] px-5 md:px-8 w-screen fixed h-[70px] border-b-2 shadow-md flex">
-      <div className="a-center">
+    <div className="md:flex z-[10] px-5 md:px-8 w-screen fixed h-[120px] md:h-[70px] border-b-2 shadow-md">
+      <div className="py-3 md:py-0 a-center">
         <Link href={ROUTES.HOME}>
           <Image src={Logo} alt="Logo" height={50} />
         </Link>
       </div>
-      <div className="h-full w-full flex justify-between px-5">
-        <div className="pl-8 h-full flex gap-4 justify-center">
+      <div className="md:h-full w-full flex justify-between md:px-5 pb-3 md:pb-0">
+        <div className="md:pl-8 h-full flex gap-4 justify-center">
           <div className="h-full a-center">
             <Link href={ROUTES.ABOUT}>
               <div

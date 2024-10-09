@@ -9,10 +9,8 @@ const MainLayout = (props) => {
   return (
     <div className="min-h-screen w-screen flex flex-col">
       <NavBar user={user} />
-      <div className="grow" style={{ paddingTop: 70 }}>
-        {children}
-      </div>
-      <Footer/>
+      <div className="grow layout-top-padding">{children}</div>
+      <Footer />
     </div>
   )
 }
