@@ -1,7 +1,7 @@
 import { ROUTES } from '@/utils/routes'
 import Link from 'next/link'
 
-export default function NotFound() {
+export default function Footer() {
   return (
     <div className="h-[60px] w-screen bg-red-100 py-1 px-3 shadow-inner flex justify-start">
       <div className="h-full v-center">

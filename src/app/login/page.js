@@ -10,6 +10,7 @@ import { LuShieldCheck } from 'react-icons/lu'
 import { useState } from 'react'
 import backend from '@/utils/backend'
 import { useRouter } from 'next/navigation'
+import SignIn from '@/components/SignIn'
 
 const handleSubmit = ({ form, setLoading, setLoginError, router }) => {
   const body = form
@@ -117,6 +118,7 @@ const Page = () => {
           </div>
         </div>
       </form>
+      <SignIn />
     </div>
   )
 }
