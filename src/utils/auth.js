@@ -16,7 +16,7 @@ export const authOptions = {
         await connect()
         const user = await ssuser.findOne({ email: handler, passwd })
         if (user) {
-          return user
+          return user._doc
         }
         return null
       },
