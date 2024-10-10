@@ -10,6 +10,7 @@ import { LuShieldCheck } from 'react-icons/lu'
 import { useState } from 'react'
 import backend from '@/utils/backend'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 
 const handleSubmit = ({ form, setLoading, setLoginError, router }) => {
   const body = form
@@ -30,6 +31,28 @@ const handleSubmit = ({ form, setLoading, setLoginError, router }) => {
     .finally(() => {
       setLoading(false)
     })
+}
+
+const handleAnotherSubmit = async ({
+  form,
+  setLoading,
+  setLoginError,
+  router,
+}) => {
+  setLoading(true)
+  const response = await signIn('credentials', {
+    handler: form.handler,
+    passwd: form.passwd,
+    redirect: false,
+  })
+  setLoading(false)
+  if (response.ok) {
+    router.push('/home')
+    return
+  }
+  if (response.error) {
+    setLoginError(response.error)
+  }
 }
 
 const initialState = {
@@ -55,7 +78,7 @@ const Page = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          handleSubmit({ form, setLoading, setLoginError, router })
+          handleAnotherSubmit({ form, setLoading, setLoginError, router })
         }}
       >
         <div className="signup-form w-full md:w-[360px] md:glass glass-hard v-center">
