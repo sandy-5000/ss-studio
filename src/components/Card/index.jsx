@@ -1,13 +1,31 @@
 'use client'
 import Image from 'next/image'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
+import Button from '@/components/Button/Icon'
 
-const Card = ({ cloth }) => {
-  const displayImages = cloth.images.slice(0, 4)
+const SCROLL = {
+  LENGTH: 290,
+  TYPE: {
+    RIGHT: 1,
+    LEFT: -1,
+  },
+}
+
+const Card = ({ id, cloth, display }) => {
+  const displayImages = !!display ? cloth.images : cloth.images.slice(0, 4)
+
+  const scroll = (divId, direction) => {
+    let container = document.querySelector(`#${divId}`)
+    container.scrollLeft += SCROLL.LENGTH * direction
+  }
 
   return (
     <div className="p-2">
       <div className="p-0 bg-red-300 rounded-md ">
-        <div className="w-[300px] aspect-square p-2 flex justify-start overflow-x-scroll">
+        <div
+          id={id}
+          className="display-card-container w-[300px] aspect-square p-2 flex justify-start overflow-x-scroll"
+        >
           {displayImages.map((image, index) => (
             <div key={`image_${index}`} className="p-1">
               <div className="w-[280px] aspect-square flex justify-center">
@@ -21,6 +39,24 @@ const Card = ({ cloth }) => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="p-1 px-3 flex justify-between">
+          <Button
+            icon={
+              <FaAngleLeft
+                onClick={() => scroll(id, SCROLL.TYPE.LEFT)}
+                className="text-md"
+              />
+            }
+          />
+          <Button
+            icon={
+              <FaAngleRight
+                onClick={() => scroll(id, SCROLL.TYPE.RIGHT)}
+                className="text-md"
+              />
+            }
+          />
         </div>
         <div className="p-2 pt-0">
           <div className="w-full p-1 bg-white rounded-md">
