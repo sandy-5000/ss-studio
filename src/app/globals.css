@@ -84,3 +84,8 @@ input:focus {
     rgba(255, 255, 255, 0.2)
   );
 }
+
+.display-image {
+  @apply rounded-lg;
+  object-fit: contain !important;
+}
