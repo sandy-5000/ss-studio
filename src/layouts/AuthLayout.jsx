@@ -57,7 +57,7 @@ const AuthLayout = (props) => {
           </Link>
         </div>
       </div>
-      <div>{children}</div>
+      <div className="layout-top-padding">{children}</div>
       <div
         style={{
           position: 'absolute',

@@ -75,7 +75,7 @@ const Page = () => {
   }
 
   return (
-    <div className="h-screen w-screen a-center px-2">
+    <div className="h-main-screen w-screen a-center px-2">
       <form
         onSubmit={(e) => {
           e.preventDefault()

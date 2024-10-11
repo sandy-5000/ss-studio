@@ -13,7 +13,7 @@ const Page = () => {
   const { data: session } = useSession()
 
   return (
-    <div className="h-screen w-screen p-4 md:px-8 lg:p-8 lg:px-16">
+    <div className="h-main-screen w-screen p-4 md:px-8 lg:p-8 lg:px-16">
       <div className="pb-4">
         <p className="text-2xl">
           Welcome back,{' '}

@@ -1,6 +1,6 @@
 const Page = () => {
   return (
-    <div className="h-screen w-screen a-center">
+    <div className="h-main-screen w-screen a-center">
       <p>Contact US!</p>
     </div>
   )

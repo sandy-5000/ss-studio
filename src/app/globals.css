@@ -41,6 +41,15 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
+.h-main-screen {
+  min-height: calc(100vh - 180px);
+}
+@media (min-width: 768px) {
+  .h-main-screen {
+    min-height: calc(100vh - 130px);
+  }
+}
+
 input:focus {
   outline: none;
 }
