@@ -1,12 +1,28 @@
+'use client'
+
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '@/assets/logo-red.png'
 import { ROUTES } from '@/utils/routes'
 import { AiTwotoneHome } from 'react-icons/ai'
+import { useSession } from 'next-auth/react'
+import Loading from '@/components/Loading'
+import { useRouter } from 'next/navigation'
 
 const AuthLayout = (props) => {
   const { children } = props
+  const { status } = useSession()
+
+  const router = useRouter()
+  if (status === 'loading') {
+    return <Loading />
+  }
+  if (status === 'authenticated') {
+    router.push(ROUTES.HOME)
+    return <Loading />
+  }
+
   return (
     <div className="h-screen w-screen flex flex-col">
       <div className="flex justify-between z-[10] px-5 md:px-8 w-screen fixed h-[70px] border-b-2 shadow-md">

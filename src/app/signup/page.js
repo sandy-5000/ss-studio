@@ -24,7 +24,7 @@ const handleSubmit = ({ form, setLoading, setSignUpError, router }) => {
         setSignUpError(data.error)
         return
       }
-      router.push('/login')
+      router.push(ROUTES.LOGIN)
     })
     .catch((error) => {
       setSignUpError('Something went wrong')
@@ -48,6 +48,7 @@ const Page = () => {
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState(initialState)
   const router = useRouter()
+
   const setSignUpError = (error) => {
     setError(error)
     console.log(error)
@@ -117,7 +118,7 @@ const Page = () => {
           )}
           <div className="flex justify-between pb-3 px-4">
             <div className="v-center">
-              <Link href="/login">
+              <Link href={ROUTES.LOGIN}>
                 <p className="text-slate-800 text-[12px]">
                   Already have an account?
                 </p>

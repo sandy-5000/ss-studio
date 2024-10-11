@@ -4,19 +4,19 @@ import Image from 'next/image'
 import Logo from '@/assets/logo-red.png'
 import Link from 'next/link'
 import { AiFillAlert } from 'react-icons/ai'
-import { PiShoppingCartDuotone } from 'react-icons/pi'
 import { PiUserCircleDuotone } from 'react-icons/pi'
 import { IoLogInOutline } from 'react-icons/io5'
 import { usePathname } from 'next/navigation'
 import { ROUTES } from '@/utils/routes'
+import { useSession } from 'next-auth/react'
 
 const navActiveStyle = {
   '--tw-ring-color': 'rgb(248 113 113 / 1)',
 }
 
-const NavBar = (props) => {
-  const { user } = props
+const NavBar = () => {
   const pathname = usePathname()
+  const { data: session, status } = useSession()
 
   return (
     <div className="md:flex z-[10] px-5 md:px-8 w-screen fixed h-[120px] md:h-[70px] border-b-2 shadow-md">
@@ -40,22 +40,9 @@ const NavBar = (props) => {
               </div>
             </Link>
           </div>
-          <div className="h-full a-center">
-            <Link href={ROUTES.CART}>
-              <div
-                style={pathname === ROUTES.CART ? navActiveStyle : {}}
-                className="w-20 py-2 ring-2 ring-red-200 text-slate-800 bg-red-200 hover:ring-red-400 px-1 rounded-md a-center"
-              >
-                <PiShoppingCartDuotone />
-                <span className="pl-1 uppercase text-xs font-semibold">
-                  Cart
-                </span>
-              </div>
-            </Link>
-          </div>
         </div>
         <div className="h-full a-center">
-          {user ? (
+          {status !== 'loading' && session?.user?.email ? (
             <Link href={ROUTES.PROFILE}>
               <div
                 style={pathname === ROUTES.PROFILE ? navActiveStyle : {}}
@@ -63,7 +50,7 @@ const NavBar = (props) => {
               >
                 <PiUserCircleDuotone />
                 <span className="pl-1 uppercase text-xs font-semibold">
-                  {user.name || 'User'}
+                  {session?.user.name || 'User'}
                 </span>
               </div>
             </Link>

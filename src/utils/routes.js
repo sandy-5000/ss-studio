@@ -1,13 +1,13 @@
 const ROUTES = {
-  ABOUT: '/about',
-  CART: '/cart',
+  ABOUT: '/ss-studio',
+  CART: '/user/cart',
   CHECKOUT: '/checkout',
   CONTACT_US: '/contactus',
   DETAILS: '/details',
   HOME: '/home',
-  LOGIN: '/login',
-  ORDERS: '/orders',
-  PROFILE: '/profile',
+  LOGIN: '/user/login',
+  ORDERS: '/user/orders',
+  PROFILE: '/user/profile',
   SIGNUP: '/signup',
 }
 

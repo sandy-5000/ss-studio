@@ -15,7 +15,9 @@ export default function NotFound() {
           </span>
           {' / '}
           <span className="uppercase text-xs font-semibold v-center px-2 pt-[2px]">
-            Developed by
+            <a target="_blank" href="/z">
+              Developed by
+            </a>
           </span>
         </div>
       </div>

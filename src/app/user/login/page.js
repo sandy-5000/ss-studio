@@ -47,7 +47,7 @@ const handleAnotherSubmit = async ({
   })
   setLoading(false)
   if (response.ok) {
-    router.push('/home')
+    router.push(ROUTES.HOME)
     return
   }
   if (response.error) {
@@ -65,6 +65,7 @@ const Page = () => {
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState(initialState)
   const router = useRouter()
+
   const setLoginError = (error) => {
     setError(error)
     console.log(error)
@@ -112,7 +113,7 @@ const Page = () => {
           )}
           <div className="flex justify-between pb-3 px-4">
             <div className="v-center">
-              <Link href="/signup">
+              <Link href={ROUTES.SIGNUP}>
                 <p className="text-slate-800 text-[12px]">
                   Didn&#39;t have an account?
                 </p>
