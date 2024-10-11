@@ -30,6 +30,21 @@ const saree_1 = {
     pic_1_9,
     pic_1_10,
   ],
+  description: {
+    name: 'Lehenga(Stitched)',
+    fablric: 'Dola SilkLehenga',
+    work: ' Kalamkari Print With Zari Weaving ',
+    Length: '41',
+    Flair: '3.80 Meter',
+    Inner: 'Micro Cotton',
+    Blousefabric: 'Dola Silk ',
+    BlouseWork: ' Printed With Zari Weaving Border ',
+    BlouseLength: ' 0.90 Meter',
+    DupattaFabric: 'Dola Silk',
+    Dupattawork:
+      'Kalamkari Print With Zari Weaving Border Also Comes With Both Side Tassels  ',
+    DupattaLength: '2.4 Meter ',
+  },
 }
 
 const saree_2 = {

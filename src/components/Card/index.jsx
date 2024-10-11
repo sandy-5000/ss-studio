@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
 import Button from '@/components/Button/Icon'
+import Link from 'next/link'
+import { ROUTES } from '@/utils/routes'
 
 const SCROLL = {
   LENGTH: 290,
@@ -28,15 +30,17 @@ const Card = ({ id, cloth, display }) => {
         >
           {displayImages.map((image, index) => (
             <div key={`image_${index}`} className="p-1">
-              <div className="w-[280px] aspect-square flex justify-center">
-                <div className="h-full p-1 bg-white rounded-xl">
-                  <Image
-                    alt="displayImage"
-                    src={image}
-                    className="h-full w-full display-image"
-                  />
+              <Link href={ROUTES.DETAILS}>
+                <div className="w-[280px] aspect-square flex justify-center">
+                  <div className="h-full p-1 bg-white rounded-xl">
+                    <Image
+                      alt="displayImage"
+                      src={image}
+                      className="h-full w-full display-image"
+                    />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
