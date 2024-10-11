@@ -90,24 +90,28 @@ const Page = () => {
               </Link>
             </div>
           </div>
-          <Input
-            placeholder="Enter Email or Phone No."
-            name="handler"
-            type="text"
-            value={form.handler}
-            onChange={setForm}
-            startIcon={
-              <PiUserCircleDuotone className="text-slate-500 -mb-[2px]" />
-            }
-          />
-          <Input
-            placeholder={'Enter Password'}
-            name="passwd"
-            type="password"
-            value={form.passwd}
-            onChange={setForm}
-            startIcon={<LuShieldCheck className="text-slate-500 -mb-[2px]" />}
-          />
+          <div className="p-5 pt-0">
+            <Input
+              placeholder="Enter Email or Phone No."
+              name="handler"
+              type="text"
+              value={form.handler}
+              onChange={setForm}
+              startIcon={
+                <PiUserCircleDuotone className="text-slate-500 -mb-[2px]" />
+              }
+            />
+          </div>
+          <div className="p-5 pt-0">
+            <Input
+              placeholder={'Enter Password'}
+              name="passwd"
+              type="password"
+              value={form.passwd}
+              onChange={setForm}
+              startIcon={<LuShieldCheck className="text-slate-500 -mb-[2px]" />}
+            />
+          </div>
           {error && (
             <span className="px-4 py-1 text-red-700 text-xs">{error}</span>
           )}

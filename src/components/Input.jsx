@@ -3,8 +3,16 @@
 import { useState } from 'react'
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
 
-const Input = (props) => {
-  const { placeholder, startIcon, error, type, name, value, onChange } = props
+const Input = ({
+  placeholder,
+  startIcon,
+  error,
+  type,
+  name,
+  value,
+  onChange,
+  disabled,
+}) => {
   const [showPasswd, setShowPasswd] = useState(false)
 
   const handleShowPasswd = () => {
@@ -13,14 +21,16 @@ const Input = (props) => {
 
   const handleChange = (e) => {
     let value = e.target.value
-    onChange((p) => {
-      return { ...p, [name]: value }
-    })
+    if (onChange) {
+      onChange((p) => {
+        return { ...p, [name]: value }
+      })
+    }
   }
 
   return (
-    <div className="p-5 pt-0 w-full">
-      <div className="relative w-full">
+    <div className="p-0 w-full">
+      <div className="relative w-full md:w-[300px]">
         {startIcon && (
           <div className="absolute h-8 left-0 px-3 a-center">{startIcon}</div>
         )}
@@ -33,6 +43,7 @@ const Input = (props) => {
                   rounded-sm ring-2 ring-red-400 focus:ring-2 focus:ring-red-300
                   tracking-wide text-sm"
           placeholder={placeholder}
+          aria-disabled={!!disabled}
         />
         {type === 'password' && (
           <div className="absolute top-0 h-8 right-0 px-3 a-center">

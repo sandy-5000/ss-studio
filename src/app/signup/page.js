@@ -73,46 +73,56 @@ const Page = () => {
               </Link>
             </div>
           </div>
-          <Input
-            placeholder="Enter Name"
-            name="name"
-            type="text"
-            value={form.name}
-            onChange={setForm}
-            startIcon={<PiUserCircleDuotone className="text-slate-500" />}
-          />
-          <Input
-            placeholder="Enter Email"
-            name="usermail"
-            type="email"
-            value={form.usermail}
-            onChange={setForm}
-            startIcon={<MdAlternateEmail className="text-slate-500" />}
-          />
-          <Input
-            placeholder={'Enter Phone No.'}
-            name="phone_no"
-            type="number"
-            value={form.phone_no}
-            onChange={setForm}
-            startIcon={<HiMiniDevicePhoneMobile className="text-slate-500" />}
-          />
-          <Input
-            placeholder={'Enter Password'}
-            name="passwd"
-            type="password"
-            value={form.passwd}
-            onChange={setForm}
-            startIcon={<LuShieldCheck className="text-slate-500" />}
-          />
-          <Input
-            placeholder={'Confirm Password'}
-            name="cpasswd"
-            type="password"
-            value={form.cpasswd}
-            onChange={setForm}
-            startIcon={<FaShieldAlt className="text-slate-500" />}
-          />
+          <div className="p-5 pt-0">
+            <Input
+              placeholder="Enter Name"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={setForm}
+              startIcon={<PiUserCircleDuotone className="text-slate-500" />}
+            />
+          </div>
+          <div className="p-5 pt-0">
+            <Input
+              placeholder="Enter Email"
+              name="usermail"
+              type="email"
+              value={form.usermail}
+              onChange={setForm}
+              startIcon={<MdAlternateEmail className="text-slate-500" />}
+            />
+          </div>
+          <div className="p-5 pt-0">
+            <Input
+              placeholder={'Enter Phone No.'}
+              name="phone_no"
+              type="number"
+              value={form.phone_no}
+              onChange={setForm}
+              startIcon={<HiMiniDevicePhoneMobile className="text-slate-500" />}
+            />
+          </div>
+          <div className="p-5 pt-0">
+            <Input
+              placeholder={'Enter Password'}
+              name="passwd"
+              type="password"
+              value={form.passwd}
+              onChange={setForm}
+              startIcon={<LuShieldCheck className="text-slate-500" />}
+            />
+          </div>
+          <div className="p-5 pt-0">
+            <Input
+              placeholder={'Confirm Password'}
+              name="cpasswd"
+              type="password"
+              value={form.cpasswd}
+              onChange={setForm}
+              startIcon={<FaShieldAlt className="text-slate-500" />}
+            />
+          </div>
           {error && (
             <span className="px-4 py-1 text-red-700 text-xs">{error}</span>
           )}

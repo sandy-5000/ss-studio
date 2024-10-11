@@ -19,7 +19,7 @@ const NavBar = () => {
   const { data: session, status } = useSession()
 
   return (
-    <div className="md:flex z-[10] px-5 md:px-8 w-screen fixed h-[120px] md:h-[70px] border-b-2 shadow-md">
+    <div className="bg-white md:flex z-[10] px-5 md:px-8 w-screen fixed h-[120px] md:h-[70px] border-b-2 shadow-md">
       <div className="py-3 md:py-0 a-center">
         <Link href={ROUTES.HOME}>
           <Image src={Logo} alt="Logo" height={50} />
