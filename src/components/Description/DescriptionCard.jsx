@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Card from '@/components/Card'
 
 const DescriptionCard = ({ cloth }) => {
-  const displayImages = cloth.images.slice(0, 4)
   const remainingImages = cloth.images.slice(4)
 
   return (
