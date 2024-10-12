@@ -8,6 +8,17 @@ import pic_1_7 from '@/assets/pictures/saree_1/pic_7.jpg'
 import pic_1_8 from '@/assets/pictures/saree_1/pic_8.jpg'
 import pic_1_9 from '@/assets/pictures/saree_1/pic_9.jpg'
 import pic_1_10 from '@/assets/pictures/saree_1/pic_10.jpg'
+import pic_1_11 from '@/assets/pictures/saree_1/pic_11.jpg'
+import pic_1_12 from '@/assets/pictures/saree_1/pic_12.jpg'
+import pic_1_13 from '@/assets/pictures/saree_1/pic_13.jpg'
+import pic_1_14 from '@/assets/pictures/saree_1/pic_14.jpg'
+import pic_1_15 from '@/assets/pictures/saree_1/pic_15.jpg'
+import pic_1_16 from '@/assets/pictures/saree_1/pic_16.jpg'
+import pic_1_17 from '@/assets/pictures/saree_1/pic_17.jpg'
+import pic_1_18 from '@/assets/pictures/saree_1/pic_18.jpg'
+import pic_1_19 from '@/assets/pictures/saree_1/pic_19.jpg'
+import pic_1_20 from '@/assets/pictures/saree_1/pic_20.jpg'
+import pic_1_21 from '@/assets/pictures/saree_1/pic_21.jpg'
 
 import pic_2_1 from '@/assets/pictures/saree_2/pic_1.jpg'
 import pic_2_2 from '@/assets/pictures/saree_2/pic_2.jpg'
@@ -29,6 +40,17 @@ const saree_1 = {
     pic_1_8,
     pic_1_9,
     pic_1_10,
+    pic_1_11,
+    pic_1_12,
+    pic_1_13,
+    pic_1_14,
+    pic_1_15,
+    pic_1_16,
+    pic_1_17,
+    pic_1_18,
+    pic_1_19,
+    pic_1_20,
+    pic_1_21,
   ],
   description: {
     name: 'Lehenga(Stitched)',

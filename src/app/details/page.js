@@ -6,7 +6,7 @@ import { saree_1, saree_2 } from '@/utils/temp'
 const Page = () => {
   return (
     <div className="h-main-screen w-screen p-4 md:px-8 lg:p-8 lg:px-16">
-      <div className="flex  grid gap-4 grid-cols-12">
+      <div className="grid gap-4 grid-cols-12">
         <div class="box sm:col-span-12 md:col-span-3">
           <div className="w-[316px]">
             <DescriptionCard cloth={saree_1} />

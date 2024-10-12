@@ -1,9 +1,10 @@
 'use client'
+
 import Image from 'next/image'
 import Card from '@/components/Card'
 
 const DescriptionCard = ({ cloth }) => {
-  const remainingImages = cloth.images.slice(4)
+  const remainingImages = cloth.images.slice(4, 10)
 
   return (
     <>

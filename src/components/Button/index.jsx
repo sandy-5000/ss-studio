@@ -15,6 +15,7 @@ const Button = ({ leftIcon, rightIcon, disabled, label, onClick, style }) => {
         transition ease-in-out duration-150
         text-slate-700 bg-red-300
         hover:bg-red-200 hover:text-[#111827]
+        hover:scale-105
         disabled:opacity-25"
       onClick={handleClick}
       style={style || {}}
