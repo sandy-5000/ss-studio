@@ -2,6 +2,8 @@
 
 import { IoHeart, IoHeartHalfSharp, IoHeartOutline } from 'react-icons/io5'
 import Button from '@/components/Button'
+import Link from 'next/link'
+import { ROUTES } from '@/utils/routes'
 
 const BuyBox = ({ cloth }) => {
   return (
@@ -37,7 +39,9 @@ const BuyBox = ({ cloth }) => {
         </div>
 
         <div className="pt-2 flex justify-center gap-2">
-          <Button label={'Buy Now'} />
+          <Link href={ROUTES.CHECKOUT}>
+            <Button label={'Buy Now'} />
+          </Link>
           <Button label={'Add to Cart'} style={{ background: '#f87171' }} />
         </div>
       </div>
