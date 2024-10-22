@@ -56,7 +56,23 @@ body {
     @apply bg-rose-500;
   }
 
+  .bg-app-light {
+    @apply bg-rose-50;
+  }
+
   .border-app {
     @apply border-rose-500;
   }
+
+  .ring-app {
+    @apply ring-rose-500;
+  }
+}
+
+.logo-text {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #e11d48 0%, #f43f5e 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

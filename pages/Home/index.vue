@@ -1,5 +1,8 @@
 <template>
   <div class="h-screen w-screen a-center">
-    <p>Home!</p>
+    <div>
+      <p>Home!</p>
+      <login-button></login-button>
+    </div>
   </div>
 </template>

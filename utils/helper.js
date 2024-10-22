@@ -5,8 +5,15 @@ export const ROUTES = {
   CHECKOUT: '/checkout',
   CONTACT_US: '/contactus',
   DETAILS: '/details',
-  LOGIN: '/user/login',
   ORDERS: '/user/orders',
-  PROFILE: '/user/profile',
-  SIGNUP: '/signup',
+  AUTH: {
+    FORGET_PASSWORD: '/auth/forgot-password',
+  },
+  USER: {
+    LOGIN: '/user/login',
+    REGISTER: '/user/register',
+    PROFILE: '/user/profile',
+  },
 }
+
+export const __ = (string) => string
