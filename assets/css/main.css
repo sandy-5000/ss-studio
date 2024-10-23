@@ -48,8 +48,19 @@ body {
     @apply bg-white;
   }
 
+  .text-site {
+    @apply text-gray-900;
+  }
+
+  .text-site-light {
+    @apply text-gray-700;
+  }
+
   .text-app {
     @apply text-rose-500;
+  }
+  .text-app-content {
+    @apply text-white;
   }
 
   .bg-app {
@@ -66,6 +77,10 @@ body {
 
   .ring-app {
     @apply ring-rose-500;
+  }
+
+  .outline-app {
+    @apply outline-red-500;
   }
 }
 

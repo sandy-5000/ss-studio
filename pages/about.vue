@@ -2,7 +2,7 @@
   <NuxtLayout :name="layout" title="about">
     <div class="h-screen w-screen a-center">
       <div>
-        <p>Home!</p>
+        <p>About!</p>
       </div>
     </div>
   </NuxtLayout>

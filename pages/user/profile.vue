@@ -1,20 +1,15 @@
 <template>
   <NuxtLayout :name="layout" title="Profile">
-    <header class="bg-site-light">
-      <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-        <p class="text-slate-100 font-normal text-md px-2">Profile</p>
-      </div>
-    </header>
     <div class="py-12 mx-2 md:mx-0">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="p-4 sm:p-8 bg-site-light shadow rounded-lg">
           <div class="max-w-xl">
             <section>
               <header>
-                <h2 class="text-lg font-medium text-gray-100">
+                <h2 class="text-lg font-medium">
                   {{ __('Profile Information') }}
                 </h2>
-                <p class="mt-1 text-sm text-gray-400">
+                <p class="mt-1 text-sm text-gray-800">
                   {{
                     __(
                       "Update your account's profile information and email address."
@@ -57,12 +52,12 @@
                   <ui-input-error class="mt-2" :messages="null" />
 
                   <div v-if="true">
-                    <p class="text-sm mt-2 text-gray-200">
+                    <p class="text-sm mt-2 text-site">
                       {{ __('Your email address is unverified.') }}
 
                       <button
                         form="send-verification"
-                        class="underline text-sm text-gray-400 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-800"
+                        class="underline text-sm text-site hover:text-app rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-800"
                       >
                         {{
                           __('Click here to re-send the verification email.')
@@ -71,7 +66,7 @@
                     </p>
                     <p
                       v-if="true"
-                      class="mt-2 font-medium text-sm text-green-400"
+                      class="mt-2 font-medium text-sm text-green-500"
                     >
                       {{
                         __(
@@ -102,11 +97,11 @@
           <div class="max-w-xl">
             <section>
               <header>
-                <h2 class="text-lg font-medium text-gray-100">
+                <h2 class="text-lg font-medium">
                   {{ __('Update Password') }}
                 </h2>
 
-                <p class="mt-1 text-sm text-gray-400">
+                <p class="mt-1 text-sm text-site">
                   {{
                     __(
                       'Ensure your account is using a long, random password to stay secure.'
@@ -189,10 +184,10 @@
           <div class="max-w-xl">
             <section class="space-y-6">
               <header>
-                <h2 class="text-lg font-medium text-gray-100">
+                <h2 class="text-lg font-medium">
                   {{ __('Delete Account') }}
                 </h2>
-                <p class="mt-1 text-sm text-gray-400">
+                <p class="mt-1 text-sm text-site-light">
                   Once your account is deleted, all of its resources and data
                   will be permanently deleted. Before deleting your account,
                   please download any data or information that you wish to

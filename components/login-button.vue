@@ -19,10 +19,10 @@
       <div class="flex justify-end">
         <button
           @click="toggleOptions"
-          class="options-button a-center inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-normal rounded-md text-gray-400 hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+          class="options-button a-center inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-normal rounded-md focus:outline-none transition ease-in-out duration-150"
         >
           <span
-            class="options-button font-normal text-gray-400 hover:text-white focus:outline focus:outline-2 focus:rounded-sm"
+            class="options-button hover:text-app font-normal focus:outline focus:outline-2 focus:rounded-sm"
             >{{ session.name }}</span
           >
           <font-awesome-icon
@@ -40,26 +40,26 @@
         <NuxtLink
           :to="ROUTES.USER.PROFILE"
           :class="{
-            'block py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-site text-slate-300': true,
-            'text-slate-100 bg-site': route.path === ROUTES.USER.PROFILE,
+            'block py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-app hover:text-app-content': true,
+            'bg-app text-app-content': route.path === ROUTES.USER.PROFILE,
           }"
           >Profile</NuxtLink
         >
         <span
-          class="block mt-1 py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-site text-slate-300"
+          class="block mt-1 py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-app hover:text-app-content"
           @click="logout"
           >Log Out</span
         >
       </div>
     </div>
   </div>
-  <div v-if="!session._id" class="flex items-center">
+  <div v-else class="flex items-center">
     <button
-      class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-normal rounded-md text-gray-400 hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+      class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-normal rounded-md focus:outline-none transition ease-in-out duration-150"
     >
       <NuxtLink
         :to="`${ROUTES.USER.LOGIN}?redirect=${route.path}`"
-        class="font-semibold text-gray-400 hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+        class="font-semibold hover:text-app focus:outline focus:outline-2 focus:rounded-sm focus:outline-app"
       >
         Log in</NuxtLink
       >
