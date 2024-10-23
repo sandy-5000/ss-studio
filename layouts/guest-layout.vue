@@ -1,9 +1,9 @@
 <template>
   <Head>
-    <Title>Darkube | {{ title || 'Auth' }}</Title>
-    <Meta name="description" content="DARKUBE - Auth" />
+    <Title>Sai Studio SS | {{ title || 'Auth' }}</Title>
+    <Meta name="description" content="Sai Studio SS - Auth" />
   </Head>
-  <body class="font-sans text-gray-900 antialiased">
+  <div class="font-sans text-gray-900 antialiased">
     <div style="height: 100dvh" class="a-center bg-site">
       <div
         style="width: min(100%, 500px)"
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script setup>

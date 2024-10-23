@@ -26,7 +26,7 @@
         icon="far fa-eye"
       />
       <font-awesome-icon
-        v-if="!showPasswd"
+        v-else
         @click="showPasswd = true"
         class="cursor-pointer text-sm"
         icon="far fa-eye-slash"
