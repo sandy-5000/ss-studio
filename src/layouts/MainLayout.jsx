@@ -10,10 +10,10 @@ const MainLayout = (props) => {
   const { data: session, status } = useSession()
   return (
     <div className="min-h-screen w-screen flex flex-col">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="grow layout-top-padding">{children}</div>
-      {status !== 'loading' && session?.user?.email && <Cart />}
-      <Footer />
+      {/* {status !== 'loading' && session?.user?.email && <Cart />} */}
+      {/* <Footer /> */}
     </div>
   )
 }
