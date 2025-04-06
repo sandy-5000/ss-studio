@@ -35,6 +35,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  is_admin: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
 })
 
 userSchema.index({ email: 1 }, { unique: true })

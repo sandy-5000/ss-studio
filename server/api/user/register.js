@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
 })
 
 async function post({ name, email, phone_no, passwd }) {
-  const hash = await Hash(email + passwd + config.SALT)
+  const hash = await Hash(passwd)
   const user = new Users({
     name,
     email,

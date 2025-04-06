@@ -6,6 +6,7 @@ export const ROUTES = {
   CONTACT_US: '/contactus',
   DETAILS: '/details',
   ORDERS: '/user/orders',
+  COLLECTIONS: '/collections',
   AUTH: {
     FORGET_PASSWORD: '/auth/forgot-password',
   },
@@ -14,6 +15,10 @@ export const ROUTES = {
     REGISTER: '/user/register',
     PROFILE: '/user/profile',
   },
+  ADMIN: {
+    ADMIN_DASHBOARD: '/admin/dashboard',
+    ADD_ITEM: '/admin/add-item'
+  }
 }
 
 export const __ = (string) => string

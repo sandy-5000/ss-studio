@@ -45,6 +45,17 @@
           }"
           >Profile</NuxtLink
         >
+
+        <NuxtLink
+          v-if="session.is_admin"
+          :to="ROUTES.ADMIN.ADMIN_DASHBOARD"
+          :class="{
+            'block py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-app hover:text-app-content': true,
+            'bg-app text-app-content': route.path === ROUTES.ADMIN.ADMIN_DASHBOARD,
+          }"
+          >Admin Dashboard</NuxtLink
+        >
+
         <span
           class="block mt-1 py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-app hover:text-app-content"
           @click="logout"

@@ -12,6 +12,9 @@
       <ui-nav-link :to="ROUTES.ABOUT" :active="path === ROUTES.ABOUT"
         >About</ui-nav-link
       >
+      <ui-nav-link :to="ROUTES.COLLECTIONS" :active="path === ROUTES.COLLECTIONS"
+        >Collections</ui-nav-link
+      >
     </div>
     <div class="ml-auto v-center">
       <login-button></login-button>

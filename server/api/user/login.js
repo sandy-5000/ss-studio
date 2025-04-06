@@ -1,5 +1,5 @@
 import Users from '~/server/models/user.model'
-import { Hash } from '~/server/utils/Hash'
+import { Hash, IsMatch } from '~/server/utils/Hash'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -24,12 +24,17 @@ export default defineEventHandler(async (event) => {
 })
 
 async function post({ email, passwd }) {
-  const hash = await Hash(email + passwd + config.SALT)
-  const user = await Users.findOne({ email, passwd: hash }, { passwd: 0 })
-  if (user === null) {
-    return {
-      error: ['User not Found or', 'Email to password Incorrect'],
-    }
+  const user = await Users.findOne({ email })
+
+  if (!user) {
+    return { error: ['User not Found'] }
   }
+
+  const match = await IsMatch(passwd, user.passwd)
+
+  if (!match) {
+    return { error: ['Email or password incorrect'] }
+  }
+
   return user
 }

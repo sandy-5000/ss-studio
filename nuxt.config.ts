@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   plugins: ['~/plugins/fontawesome'],
   modules: [
     'nuxt-icons',
+    '@vueuse/nuxt',
     [
       '@sidebase/nuxt-session',
       {
@@ -27,5 +28,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     MONGODB: process.env.MONGODB,
     SALT: process.env.SALT,
+    AWS_REGION: process.env.AWS_REGION,
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
   },
 })

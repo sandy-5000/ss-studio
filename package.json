@@ -11,20 +11,27 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.782.0",
+    "@aws-sdk/s3-request-presigner": "^3.782.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "aws-sdk": "^2.1692.0",
     "bcrypt": "^5.1.1",
     "mongoose": "^8.7.2",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.15.4",
     "nuxt-icons": "^3.2.1",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue3-carousel": "^0.14.0"
   },
   "devDependencies": {
     "@sidebase/nuxt-session": "^0.2.8",
+    "@types/uuid": "^10.0.0",
+    "@vueuse/core": "^13.0.0",
+    "@vueuse/nuxt": "^13.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14"

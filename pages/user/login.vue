@@ -96,6 +96,8 @@ const changeValue = (key, value) => {
 
 const loginSubmit = async () => {
   const { email, passwd } = body.value
+  console.log(body.value)
+
   body.value = { email: '', passwd: '' }
   if (session.value?._id) {
     await remove()
