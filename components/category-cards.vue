@@ -1,8 +1,12 @@
 <template>
-    <div class="container mx-auto px-4 py-10">
+    <div class="container mx-auto px-4 py-8">
       <h2 class="text-center text-2xl font-bold mb-6">
         SHOP BY COLLECTION
       </h2>
+
+      <p class="text-center text-sm text-gray-500 mb-6">
+      Discover your perfect dress with our curated categories
+    </p>
   
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         <div
@@ -47,14 +51,24 @@ const handleResize = () => {
   isMobile.value = window.innerWidth < 1024;
 };
 
+// const collections = ref([
+//   { name: "SAREES", image: new URL("~/assets/images/banner1.png", import.meta.url).href },
+//   { name: "KURTAAS", image: new URL("~/assets/images/banner3.png", import.meta.url).href },
+//   { name: "HALF SAREES", image: new URL("~/assets/images/banner2.png", import.meta.url).href },
+//   { name: "SPECIALS", image: new URL("~/assets/images/banner1.png", import.meta.url).href },
+//   { name: "DRESSES", image: new URL("~/assets/images/banner2.png", import.meta.url).href },
+//   { name: "KURTIS", image: new URL("~/assets/images/banner3.png", import.meta.url).href },
+// ]);
+
 const collections = ref([
-  { name: "SAREES", image: new URL("~/assets/images/banner1.png", import.meta.url).href },
-  { name: "KURTAAS", image: new URL("~/assets/images/banner3.png", import.meta.url).href },
-  { name: "HALF SAREES", image: new URL("~/assets/images/banner2.png", import.meta.url).href },
-  { name: "SPECIALS", image: new URL("~/assets/images/banner1.png", import.meta.url).href },
-  { name: "DRESSES", image: new URL("~/assets/images/banner2.png", import.meta.url).href },
-  { name: "KURTIS", image: new URL("~/assets/images/banner3.png", import.meta.url).href },
-]);
+  { name: "SAREES", image: "/images/banner1.png" },
+  { name: "KURTAAS", image: "/images/banner3.png" },
+  { name: "HALF SAREES", image: "/images/banner2.png" },
+  { name: "SPECIALS", image: "/images/banner1.png" },
+  { name: "DRESSES", image: "/images/banner2.png" },
+  { name: "KURTIS", image: "/images/banner3.png" },
+])
+
 
 const showMore = ref(false);
 

@@ -1,7 +1,7 @@
 <template>
-  <loader :loading="loading" />
-
+  
   <NuxtLayout :name="layout" title="Profile">
+    <loader :loading="loading" />``
     <div class="mx-2 md:mx-0">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="p-4 sm:p-8 bg-site-light shadow rounded-lg">
@@ -113,6 +113,22 @@
                   <ui-input-error class="mt-2" :messages="null" />
                 </div>
 
+                <div>
+                  <ui-input-label for="product_info" :value="__('Product Info')" />
+                  <ui-text-input
+                    id="product_info"
+                    :value="info.product.product_info"
+                    @update:value="(x) => (info.product.product_info = x)"
+                    name="product_info"
+                    placeholder="Enter Description"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autofocus
+                  />
+                  <ui-input-error class="mt-2" :messages="null" />
+                </div>
+
 
                 <div class="flex items-center gap-4">
                   <ui-button-primary type="submit" v-if="!loading"
@@ -136,10 +152,10 @@ import { useState } from 'nuxt/app'
 
 const layout = 'admin-layout'
 
-const { session, update } = await useSession()
+const { session } = useUserSession()
 const route = useRoute()
 
-if (!session.value || !session.value._id) {
+if (!session.value || !session.value.id) {
   navigateTo(`/login?redirect=${route.path}`)
 }
 
@@ -148,8 +164,8 @@ const loading = useState('loading', () => false)
 const info = useState('info', () => {
   return {
     profile: {
-      name: session.value.name,
-      email: session.value.email,
+      name: session.value.user.name,
+      email: session.value.user.email,
     },
     product: {
       product_name: '',
@@ -157,7 +173,8 @@ const info = useState('info', () => {
       collection: 'general',
       vendor_name: '',
       vendor_code: '',
-      images:[],
+      images: [],
+      product_info: ''
     },
   }
 })
@@ -169,60 +186,75 @@ const show = useState('show', () => {
   }
 })
 
-const handleProfileUpdate = async () => {
-  const { name, email } = info.value.profile
-  const { product_name, price, collection } = info.value.product
-  info.value.profile = { name: '', email: '' }
+// loading.value = true // Show loader
+// await new Promise((resolve) => setTimeout(resolve, 3000)) // Simulate API call
 
-  console.log(info)
+// const uploadedImageKeys = []
 
-  loading.value = true // Show loader
-  // await new Promise((resolve) => setTimeout(resolve, 3000)) // Simulate API call
+// for (const file of info.value.product.images) {
+//   const buffer = await file.arrayBuffer()
+//   const contentType = file.type
+//   const fileKey = `products/${info.product.product_name}/${uuidv4()}-${file.name}`
 
-  const uploadedImageKeys = []
-
-  for (const file of info.product.images.value) {
-    const buffer = await file.arrayBuffer()
-    const contentType = file.type
-    const fileKey = `products/${info.product.product_name}/${uuidv4()}-${file.name}`
-
-    const s3Url = await uploadToS3(buffer, fileKey, contentType)
-    uploadedImageKeys.push(fileKey) // or s3Url if you're storing URLs
-  }
+//   const s3Url = await uploadToS3(buffer, fileKey, contentType)
+//   uploadedImageKeys.push(fileKey) // or s3Url if you're storing URLs
+// }
 
 
-  loading.value = false // Hide loader
+// loading.value = false // Hide loader
 
-  // loading.value.profileUpdate = true
-  // try {
-  //   const response = await $fetch('/api/user/profile', {
-  //     method: 'PATCH',
-  //     body: {
-  //       update: 'profile',
-  //       _id: session.value._id,
-  //       name,
-  //       email,
-  //     },
-  //   })
-  //   if (!response.error) {
-  //     await update({
-  //       name: name || defaultInfo.value.name,
-  //       email: email || defaultInfo.value.email,
-  //     })
-  //     defaultInfo.value = {
-  //       name: session.value.name,
-  //       email: session.value.email,
-  //     }
-  //   }
-  //   info.value.profile = {
-  //     name: defaultInfo.value.name,
-  //     email: defaultInfo.value.email,
-  //   }
-  //   profileUpdated(response.error || response.status)
-  // } catch (e) {
-  //   profileUpdated('Update Failed')
-  // } finally {
-  //   loading.value.profileUpdate = false
+// loading.value.profileUpdate = true
+
+// if (!response.error) {
+  // await update({
+  //   name: name || defaultInfo.value.name,
+  //   email: email || defaultInfo.value.email,
+  // })
+  // defaultInfo.value = {
+  //   name: session.value.name,
+  //   email: session.value.email,
   // }
+// }
+// info.value.profile = {
+//   name: defaultInfo.value.name,
+//   email: defaultInfo.value.email,
+// }
+// profileUpdated(response.error || response.status)
+const handleProfileUpdate = async () => {
+  const formData = new FormData()
+
+  formData.append('update', 'product')
+
+  const profile = {
+    name: info.value.profile.name,
+    email: info.value.profile.email
+  }
+  formData.append('profile', JSON.stringify(profile))
+
+  const product = {
+    product_name: info.value.product.product_name,
+    price: info.value.product.price,
+    collection: info.value.product.collection,
+    vendor_name: info.value.product.vendor_name,
+    vendor_code: info.value.product.vendor_code,
+    product_info: info.value.product.product_info
+  }
+  formData.append('product', JSON.stringify(product))
+
+  info.value.product.images.forEach(file => {
+    formData.append('images', file)
+  })
+
+  try {
+    const response = await $fetch('/api/admin/addItem', {
+      method: 'POST',
+      body: formData
+    })
+    console.log('Upload successful:', response)
+  } catch (error) {
+    console.error('Upload failed:', error)
+  }
 }
+
+
 </script>

@@ -5,6 +5,7 @@
       <div class="w-full space-y-4 p-5 rounded-md">
         <carousel />
         <category-cards />
+        <product-grid />
       </div>
     </div>
   </NuxtLayout>

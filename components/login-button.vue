@@ -14,7 +14,7 @@
 </style>
 
 <template>
-  <div v-if="session._id" class="flex items-center">
+  <div v-if="session?.user?.name" class="flex items-center">
     <div class="relative w-32 md:w-48">
       <div class="flex justify-end">
         <button
@@ -23,7 +23,7 @@
         >
           <span
             class="options-button hover:text-app font-normal focus:outline focus:outline-2 focus:rounded-sm"
-            >{{ session.name }}</span
+            >{{ session.user.name }}</span
           >
           <font-awesome-icon
             class="ml-1 mt-[2px] text-xs"
@@ -47,7 +47,7 @@
         >
 
         <NuxtLink
-          v-if="session.is_admin"
+          v-if="session.user.is_admin"
           :to="ROUTES.ADMIN.ADMIN_DASHBOARD"
           :class="{
             'block py-2 px-4 text-sm rounded-md cursor-pointer hover:bg-app hover:text-app-content': true,
@@ -82,7 +82,8 @@
 import { ROUTES } from '~/utils/helper'
 
 const route = useRoute()
-const { session, remove } = await useSession()
+const { session , clear } = useUserSession()
+
 const options = useState('options', () => false)
 
 const toggleOptions = () => {
@@ -90,7 +91,7 @@ const toggleOptions = () => {
 }
 
 const logout = async () => {
-  await remove()
+  await clear()
   navigateTo(ROUTES.USER.LOGIN)
 }
 

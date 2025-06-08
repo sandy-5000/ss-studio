@@ -49,11 +49,17 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 // Import local images
+// const images = ref([
+//   new URL("~/assets/images/banner1.png", import.meta.url).href,
+//   new URL("~/assets/images/banner2.png", import.meta.url).href,
+//   new URL("~/assets/images/banner3.png", import.meta.url).href,
+// ]);
+
 const images = ref([
-  new URL("~/assets/images/banner1.png", import.meta.url).href,
-  new URL("~/assets/images/banner2.png", import.meta.url).href,
-  new URL("~/assets/images/banner3.png", import.meta.url).href,
-]);
+  '/images/banner1.png',
+  '/images/banner2.png',
+  '/images/banner3.png',
+])
 
 const currentIndex = ref(0);
 let interval = null;

@@ -6,20 +6,41 @@ export default defineEventHandler(async (event) => {
     const req = event.node.req
     const res = event.node.res
     res.setHeader('Content-Type', 'application/json')
+
     if (req.method === 'POST') {
       const body = await readBody(event)
       if (!body.email || !body.passwd) {
         res.statusCode = 400
         return res.end(str({ error: 'Missing parameters' }))
       }
+
       const user = await post(body)
-      return res.end(str(user))
+      if (user.error) {
+        res.statusCode = 401
+        return res.end(str(user))
+      }
+
+      await clearUserSession(event)
+
+      await setUserSession(event, {
+        user: {
+          id: user._id.toString(),
+          email: user.email,
+          is_admin: user.is_admin,
+          name: user.name,
+        },
+      })
+
+      // const session = await getUserSession(event)
+
+      return res.end(str({ success: true, user }))
     } else {
       res.statusCode = 405
       return res.end(str({ error: 'Unsupported method' }))
     }
   } catch (e) {
-    return res.end(str({ error: e }))
+    res.statusCode = 500
+    return res.end(str({ error: e.message || 'Server error' }))
   }
 })
 

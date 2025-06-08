@@ -204,25 +204,26 @@
 </template>
 
 <script setup>
-const layout = 'main-layout'
-const { session, update } = await useSession()
-const route = useRoute()
-if (!session.value || !session.value._id) {
+const { session } = useUserSession()
+if (!session.value || !session.value.user?.id) {
   navigateTo(`/login?redirect=${route.path}`)
 }
 
+const layout = 'main-layout'
+const route = useRoute()
+
 const defaultInfo = useState('defaultInfo', () => {
   return {
-    name: session.value.name,
-    email: session.value.email,
+    name: session.value.user.name,
+    email: session.value.user.email,
   }
 })
 
 const info = useState('info', () => {
   return {
     profile: {
-      name: session.value.name,
-      email: session.value.email,
+      name: session.value.user.name,
+      email: session.value.user.email,
     },
     passwd: {
       current: '',
@@ -263,7 +264,7 @@ const loading = useState('loading', () => {
 const handleProfileUpdate = async () => {
   const { name, email } = info.value.profile
   info.value.profile = { name: '', email: '' }
-  if (!session.value || !session.value._id) {
+  if (!session.value || !session.value.user.id) {
     navigateTo(`/login?redirect=${route.path}`)
     return
   }
@@ -273,7 +274,7 @@ const handleProfileUpdate = async () => {
       method: 'PATCH',
       body: {
         update: 'profile',
-        _id: session.value._id,
+        _id: session.value.user.id,
         name,
         email,
       },
@@ -284,8 +285,8 @@ const handleProfileUpdate = async () => {
         email: email || defaultInfo.value.email,
       })
       defaultInfo.value = {
-        name: session.value.name,
-        email: session.value.email,
+        name: session.value.user.name,
+        email: session.value.user.email,
       }
     }
     info.value.profile = {
@@ -303,7 +304,7 @@ const handleProfileUpdate = async () => {
 const handlePasswordUpdate = async () => {
   const { current, updated, confirm } = info.value.passwd
   info.value.passwd = { current: '', updated: '', confirm: '' }
-  if (!session.value || !session.value._id) {
+  if (!session.value || !session.value.user.id) {
     navigateTo(`/login?redirect=${route.path}`)
     return
   }
@@ -317,7 +318,7 @@ const handlePasswordUpdate = async () => {
       method: 'PATCH',
       body: {
         update: 'passwd',
-        _id: session.value._id,
+        _id: session.value.user.id,
         passwd: current,
         npasswd: updated,
       },

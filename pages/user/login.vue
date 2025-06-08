@@ -60,14 +60,21 @@
         </ui-button-loading>
       </div>
     </form>
+
+    <!-- <div v-if="loggedIn">
+      <pre>welcome {{ JSON.stringify(session.user.name) }}</pre>
+    </div>
+    <div v-else>
+      <h1>Not logged in</h1>
+    </div> -->
   </NuxtLayout>
 </template>
 
 <script setup>
 import { ROUTES } from '~/utils/helper'
+const { loggedIn, session, clear, fetch, ready } = useUserSession()
 
 const layout = 'guest-layout'
-const { session, remove, overwrite } = await useSession()
 const route = useRoute()
 const { redirect } = route.query
 if (session.value?._id) {
@@ -96,12 +103,8 @@ const changeValue = (key, value) => {
 
 const loginSubmit = async () => {
   const { email, passwd } = body.value
-  console.log(body.value)
 
   body.value = { email: '', passwd: '' }
-  if (session.value?._id) {
-    await remove()
-  }
   loading.value = true
   try {
     const response = await $fetch('/api/user/login', {
@@ -118,9 +121,9 @@ const loginSubmit = async () => {
       }, 3000)
       return
     }
-    await overwrite(response)
+    await fetch()
     loading.value = false
-    if (redirect) {
+    if (redirect && ready.value) {
       navigateTo(redirect)
     } else {
       navigateTo(ROUTES.HOME)

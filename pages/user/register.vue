@@ -107,10 +107,12 @@
 import { ROUTES } from '~/utils/helper'
 
 const layout = 'guest-layout'
-const { session, remove, overwrite } = await useSession()
+// const { session, remove, overwrite } = await useSession()
+const { session , clear } = useUserSession()
+
 const route = useRoute()
 const { redirect } = route.query
-if (session.value?._id) {
+if (session.value?.user?.id) {
   navigateTo(ROUTES.HOME)
 }
 
@@ -177,8 +179,8 @@ const registerSubmit = async () => {
     passwd: '',
     cpasswd: '',
   }
-  if (session.value?._id) {
-    await remove()
+  if (session.value?.user?.id) {
+    await clear()
   }
   loading.value = true
   try {

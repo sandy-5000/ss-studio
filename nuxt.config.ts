@@ -13,23 +13,13 @@ export default defineNuxtConfig({
     },
   },
   plugins: ['~/plugins/fontawesome'],
-  modules: [
-    'nuxt-icons',
-    '@vueuse/nuxt',
-    [
-      '@sidebase/nuxt-session',
-      {
-        session: {
-          expiryInSeconds: 6 * 60 * 60,
-        },
-      },
-    ],
-  ],
+  modules: ['nuxt-icons', '@vueuse/nuxt', 'nuxt-auth-utils'],
   runtimeConfig: {
     MONGODB: process.env.MONGODB,
     SALT: process.env.SALT,
     AWS_REGION: process.env.AWS_REGION,
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    AWS_S3_BUCKET_NAME: process.env.AWS_S3_BUCKET_NAME,
   },
 })
